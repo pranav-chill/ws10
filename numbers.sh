@@ -1,0 +1,1 @@
+cat amazon_reviews_us_Books_v1_02.tsv | sed '1d' | awk -F'\t' 'BEGIN {max=min=1} {if($9>max) {max=$9}; if($9< min) {min=$9}; total+=$9; count+=1} END {print"min ", min, " max ", max, " avg ", total/count}'
